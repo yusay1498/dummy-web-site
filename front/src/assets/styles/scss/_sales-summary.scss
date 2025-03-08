@@ -1,0 +1,87 @@
+.sales-summary-list {
+  width: 80%;
+  margin: 30px auto;
+  font-size: 20px;
+  @include sp {
+    width: 90%;
+  }
+
+  &_title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &_search {
+    width: 525px;
+    height: 28px;
+    display: flex;
+    white-space: nowrap;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    @include sp {
+      flex-direction: column;
+      height: 80px;
+      align-items: unset;
+      width: 90%;
+    }
+
+    &_item {
+      display: flex;
+      @include sp {
+        height: 28px;
+      }
+
+      &_title {
+        margin-right: 3px;
+      }
+    }
+
+    &_date {
+      display: flex;
+      padding: 2px;
+      @include sp {
+        height: 28px;
+        margin-top: 6px;
+      }
+    }
+
+    &_button {
+      @include sp {
+        width: 80px;
+        margin: 3px 0 0 auto;
+      }
+    }
+  }
+
+  &_table-wrapper {
+    width: 100%;
+    overflow-x: auto; // 横スクロールを追加
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &_table {
+    width: 100%;
+    margin: 30px auto;
+    border-color: gray;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+
+    &_title {
+      background-color: rgb(242, 242, 242);
+
+      & th {
+        font-weight: 400;
+        border: #ccc 1px solid;
+      }
+    }
+
+    & td {
+      padding: 5px 0;
+    }
+  }
+}
