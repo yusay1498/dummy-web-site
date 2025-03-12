@@ -55,4 +55,4 @@ temp.sh
 # .tox
 # .coverage
 
-./.github
+./.github/*
