@@ -54,5 +54,3 @@ temp.sh
 # __pycache__/
 # .tox
 # .coverage
-
-./.github/*

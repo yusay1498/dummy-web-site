@@ -6,5 +6,5 @@
 ## front build
 
 ```bash
-(cd front && npm build)
+(cd front && npm run build)
 ```

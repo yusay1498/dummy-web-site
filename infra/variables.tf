@@ -13,123 +13,41 @@ variable "environment" {
   description = "The environment where to deploy the solution"
 }
 
-variable "vpc_id" {
+variable "front_bucket" {
   type = string
 }
 
-variable "subnet_pub_ids" {
-  type = list(string)
+variable "front_environment" {
+  description = "The environment (e.g., Dev, Stage, Prod)"
+  type        = string
+  default     = "Dev"
 }
 
-variable "subnet_pro_ids" {
-  type = list(string)
-}
-
-variable "subnet_pri_ids" {
-  type = list(string)
-}
-
-variable "security_group_vpc_id" {
+variable "bucket_acl" {
   type = string
+  default = "private"
 }
 
-variable "security_group_http_id" {
-  type = string
+variable "index_document" {
+  description = "The index document for the S3 bucket website"
+  type        = string
+  default     = "index.html"
 }
 
-# Database settings
-variable "db_username" {
-  type    = string
-  default = "postgres"
+variable "error_document" {
+  description = "The error document for the S3 bucket website"
+  type        = string
+  default     = "error.html"
 }
 
-# Event streaming settings
-variable "msk_cluster_arn" {
-  type = string
+variable "routing_rule_condition_key_prefix" {
+  description = "The key prefix for routing rule condition"
+  type        = string
+  default     = "docs/"
 }
 
-# Container settings - API
-variable "container_api_name" {
-  type = string
-}
-
-variable "container_api_version" {
-  type = string
-}
-
-variable "container_api_exec_role_arn" {
-  type = string
-}
-
-variable "container_api_count" {
-  type    = string
-  default = 1
-}
-
-variable "container_api_envvar_value_db_name" {
-  type    = string
-  default = "postgres"
-}
-
-variable "container_api_envvar_value_db_option" {
-  type    = string
-  default = ""
-}
-
-variable "container_api_port" {
-  type    = number
-  default = 8080
-}
-
-variable "container_api_health_port" {
-  type    = number
-  default = 8080
-}
-
-# Container settings - Consumer
-variable "container_consumer_name" {
-  type = string
-}
-
-variable "container_consumer_version" {
-  type = string
-}
-
-variable "container_consumer_exec_role_arn" {
-  type = string
-}
-
-variable "container_consumer_role_arn" {
-  type = string
-}
-
-variable "container_consumer_count" {
-  type    = string
-  default = 1
-}
-
-variable "container_consumer_envvar_value_point_api_baseurl" {
-  type = string
-}
-
-variable "container_consumer_envvar_value_kafka_bootstrap_servers" {
-  type = string
-}
-
-variable "container_consumer_envvar_value_kafka_topic_name" {
-  type = string
-}
-
-variable "container_consumer_envvar_value_kafka_consumer_group_id" {
-  type = string
-}
-
-variable "container_consumer_port" {
-  type    = number
-  default = 8080
-}
-
-variable "container_consumer_health_port" {
-  type    = number
-  default = 8080
+variable "routing_rule_redirect_prefix" {
+  description = "The key prefix for routing rule redirect"
+  type        = string
+  default     = "documents/"
 }
