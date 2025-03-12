@@ -1,5 +1,10 @@
 # dummy-web-site
 
+- build
+  - [front](#front-build)
+
+## front build
+
 ```bash
-(cd client-app && yarn build --env-file .env.development)
+(cd front && npm build)
 ```
