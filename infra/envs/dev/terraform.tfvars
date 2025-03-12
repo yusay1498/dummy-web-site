@@ -1,5 +1,5 @@
 # General settings
-project = "demo"
+project = "dummy-web-site"
 environment = "dev"
 region      = "ap-northeast-1"
 
