@@ -1,13 +1,23 @@
-## s3
-module "s3" {
-  source = "./modules/s3"
+## cloudfront
+module "cloudfront" {
+  source = "./modules/cloudfront"
 
-  front_bucket = var.front_bucket
-  front_environment = var.front_environment
-  bucket_acl = var.bucket_acl
+  bucket_name     = var.bucket_name
+  bucket_tag_name = var.bucket_tag_name
+  bucket_acl      = var.bucket_acl
 
-  index_document = var.index_document
-  error_document = var.error_document
-  routing_rule_condition_key_prefix = var.routing_rule_condition_key_prefix
-  routing_rule_redirect_prefix = var.routing_rule_redirect_prefix
+  oac_name = "${var.project}-${var.oac_name}"
+
+  s3_origin_id_name = var.s3_origin_id_name
+
+  geo_location        = var.geo_location
+  price_class         = var.price_class
+  default_root_object = var.default_root_object
+  min_ttl             = var.min_ttl
+  default_ttl         = var.default_ttl
+  max_ttl             = var.max_ttl
+
+  error_page_path       = "/${var.default_root_object}"
+  error_caching_min_ttl = var.error_caching_min_ttl
 }
+

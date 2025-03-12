@@ -1,18 +1,3 @@
-# General settings
-variable "project" {
-  type = string
-}
-
-variable "region" {
-  description = "Region where to deploy the resources"
-  type        = string
-}
-
-variable "environment" {
-  type        = string
-  description = "The environment where to deploy the solution"
-}
-
 variable "bucket_name" {
   type = string
   default = "mybucket"
@@ -25,12 +10,10 @@ variable "bucket_tag_name" {
 
 variable "bucket_acl" {
   type = string
-  default = "private"
 }
 
 variable "oac_name" {
   type = string
-  default = "oac"
 }
 
 variable "s3_origin_id_name" {
@@ -66,6 +49,11 @@ variable "default_ttl" {
 variable "max_ttl" {
   type        = number
   default     = 86400
+}
+
+variable "error_page_path" {
+  type        = string
+  default     = "/index.html"
 }
 
 variable "error_caching_min_ttl" {

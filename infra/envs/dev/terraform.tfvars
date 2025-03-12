@@ -3,8 +3,7 @@ project = "demo"
 environment = "dev"
 region      = "ap-northeast-1"
 
-# front bucket
-front_bucket = "dummy-web-site-build"
-# TODO エラーページの作成
-#  作成後この行は削除
-error_document = "health.html"
+# Web site setting
+bucket_name   = "dummy-web-site-bucket"
+bucket_tag_name = "dummy web site bucket"
+s3_origin_id_name = "dummyS3Origin"
