@@ -108,3 +108,10 @@ jobs:
       run: |
         cd ./infra
         terraform apply -auto-approve -var-file=./envs/dev/terraform.tfvars
+
+    - name: Deploy S3
+      run: |
+        cd ./front
+        npm install
+        npm run build
+        aws s3 sync build/ s3://dummy-web-site-bucket
