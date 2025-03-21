@@ -69,7 +69,7 @@ resource "aws_cloudfront_distribution" "main" {
   }
 
   ordered_cache_behavior {
-    path_pattern     = "/*"
+    path_pattern     = "/content/*"
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods = ["GET", "HEAD", "OPTIONS"]
     target_origin_id = local.s3_origin_id
@@ -78,26 +78,6 @@ resource "aws_cloudfront_distribution" "main" {
       query_string = false
       headers = ["Origin"]
 
-      cookies {
-        forward = "none"
-      }
-    }
-
-    min_ttl                = var.min_ttl
-    default_ttl            = var.default_ttl
-    max_ttl                = var.max_ttl
-    compress               = true
-    viewer_protocol_policy = "allow-all"
-  }
-
-  ordered_cache_behavior {
-    path_pattern     = "/content/*"
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
-    cached_methods = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
-
-    forwarded_values {
-      query_string = false
       cookies {
         forward = "none"
       }
