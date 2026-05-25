@@ -38,3 +38,6 @@ build/
 ### response time count ###
 count_time.sh
 results.txt
+
+### aws login
+aws_login.txt
